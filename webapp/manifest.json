@@ -1,0 +1,101 @@
+{
+  "_version": "1.32.0",
+  "sap.app": {
+    "id": "consultaprodutossimone",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "ach": "ach"
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://task",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "consultaprodutossimone.view.Tela_Principal",
+      "type": "XML",
+      "async": true,
+      "id": "Tela_Principal"
+    },
+    "dependencies": {
+      "minUI5Version": "1.66.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "consultaprodutossimone.i18n.i18n"
+        }
+      },
+      
+    "ModeloProdutoArquivo" : { 
+        "type": "sap.ui.model.json.JSONModel" ,
+        "uri": "model/produtos.json"
+    }
+    },
+
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "consultaprodutossimone.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "RouteTela_Principal",
+          "pattern": "RouteTela_Principal",
+          "target": ["TargetTela_Principal"]
+        }
+      ],
+      "targets": {
+        "TargetTela_Principal": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "Tela_Principal",
+          "viewName": "Tela_Principal"
+        }
+      }
+    }
+  }
+}
